@@ -1,0 +1,40 @@
+Initialize a Git repository in the empty directory
+
+git init
+
+Create .gitignore
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.pkl
+*.sqlite3
+
+# Virtual environments
+venv/
+.env/
+.env.bak/
+
+# Django
+/static/
+media/
+
+# VS Code
+.vscode/
+.code-workspace
+
+# Docker
+*.log
+*.pid
+*.seed
+*.db
+*.sock
+docker-compose.override.yml
+
+# System files
+.DS_Store
+Thumbs.db
+
