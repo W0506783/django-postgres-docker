@@ -1,8 +1,8 @@
-Initialize a Git repository in the empty directory
+1. Initialize a Git repository in the empty directory
 
 git init
 
-Create .gitignore
+2. Create .gitignore
 
 # Python
 __pycache__/
@@ -37,4 +37,20 @@ docker-compose.override.yml
 # System files
 .DS_Store
 Thumbs.db
+
+3. Placeholder files
+
+Dockerfile
+docker-compose.yml
+requirements.txt
+
+Step 1 – Create the Django Project
+make web
+django-admin startproject core .
+python manage.py startapp events
+Update core/settings.py with database settings using environment variables from .env. Then migrate:
+
+python manage.py makemigrations
+python manage.py migrate
+
 
