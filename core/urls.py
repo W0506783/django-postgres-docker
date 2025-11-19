@@ -14,15 +14,20 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
+# core/urls.py
+
+from django.contrib import admin # <--- 1. IMPORT ADMIN
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from events.views import EventViewSet, RegistrationViewSet
-
-router = DefaultRouter()
-router.register("events", EventViewSet)
-router.register("registrations", RegistrationViewSet)
+from django.views.generic.base import RedirectView
 
 urlpatterns = [
-    path("api/", include(router.urls)),
+    # 2. ADD THE PATH FOR THE ADMIN SITE
+    path('admin/', admin.site.urls),
+
+    # This is the redirect you might have added earlier
+    path('', RedirectView.as_view(url='/api/', permanent=False)),
+
+    # This is your existing API path
+    path('api/', include('events.urls')),
 ]
